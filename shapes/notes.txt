@@ -1,0 +1,8 @@
+Line is a line segment.
+
+Generalization of a curve.
+
+Curve has two end points, a and b.
+
+rho_point of a curve is a fractional point between a and b.
+
