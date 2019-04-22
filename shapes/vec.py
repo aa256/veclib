@@ -13,7 +13,16 @@ class Vec:
 			math.cos(angle)*r,
 			math.sin(angle)*r,
 			r, phi)
-			
+
+	def __add__(self, pt):
+		return Point(self.x + pt.x, self.y + pt.y)
+
+	def __sub__(self, pt):
+		return Point(self.x + pt.x, self.y + pt.y)
+
+	def __mul__(self, sc):
+		return Point(self.x*sc, self.y*sc)
+
 	def len(self):
 		if not self.r:
 			self.r = math.sqrt(self.x*self.x + self.y*self.y)
@@ -23,4 +32,7 @@ class Vec:
 		if not self.phi:
 			 self.phi = math.atan2(self.x, self.y)
 		return self.phi
+
+	def within_eps(self, v, eps=0.00001):
+		return (self - v).len() < eps
 

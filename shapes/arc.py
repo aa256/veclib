@@ -1,5 +1,5 @@
 
-class Arc:
+class Arc(Curve):
 	
 	def __init__(
 		self, ctr, l_vec=None, r_vec=None, phi=None):
