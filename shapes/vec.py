@@ -28,7 +28,7 @@ class Vec:
 			self.r = math.sqrt(self.x*self.x + self.y*self.y)
 		return self.r
 
-	def ang(self):
+	def angle(self):
 		if not self.phi:
 			 self.phi = math.atan2(self.x, self.y)
 		return self.phi
