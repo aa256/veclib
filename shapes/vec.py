@@ -1,7 +1,7 @@
 import math
 
 class Vec:
-
+	"""2D-vectors """
 	def __init__(self, x, y, r=None, phi=None):
 		self.x = x
 		self.y = y
@@ -22,6 +22,8 @@ class Vec:
 
 	def __mul__(self, sc):
 		return Point(self.x*sc, self.y*sc)
+
+	def __rmul__(self, sc):
 
 	def len(self):
 		if not self.r:

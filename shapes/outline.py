@@ -5,5 +5,5 @@ class Polycurve:
 	def __init__(*args):
 		for arg in args:
 			if not isinstance(arg, Curve):
-				raise ValueE
+				raise ValueError("Invalid arg for PolyCurve()")
 
