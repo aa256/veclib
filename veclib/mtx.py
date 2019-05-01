@@ -45,7 +45,7 @@ class Mtx:
 			self.c + mtx.c, self.d + mtx.d)
 
 
-	def __mul__(self, other):
+	def __matmul__(self, other):
 		return Mtx(
-			self[0]*other[-1], self[0]*other[-2],
-			self[1]*other[-1], self[0]*other[-2]) 
+			self[0]@other[-1], self[0]@other[-2],
+			self[1]@other[-1], self[0]@other[-2]) 

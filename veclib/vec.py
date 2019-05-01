@@ -24,5 +24,8 @@ class Vec:
 		if isinstance(other, (int, float)):
 			return Vec(self.x*other, self.y*other)
 		elif isinstance(other, Vec):
-			return self.x * other.x + self.y * other.y
+                  return Vec(self.x * other.x, self.y * other.y)
 		return NotImplemented
+
+def __matmul__(self, other):
+	return self.x*other.x + self.y*other.y
