@@ -7,3 +7,4 @@ class Polycurve:
 			if not isinstance(arg, Curve):
 				raise ValueError("Invalid arg for PolyCurve()")
 
+		

@@ -9,3 +9,6 @@ Curve has two end points, a and b.
 
 rho_point of a curve is a fractional point between a and b.
 
+arc has large-arc flag, and sweep-flag.
+Sweep flag 0, goes in counter clockwise direction
+Sweep flag, goes in large-arc format.

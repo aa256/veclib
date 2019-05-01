@@ -3,6 +3,9 @@ class Curve():
 		self.a = a
 		self.b = b
 
+	def transform(self, mtx):
+		
+
 	def rho_point(self, rho):
 		pass
 

@@ -24,6 +24,7 @@ class Vec:
 		return Point(self.x*sc, self.y*sc)
 
 	def __rmul__(self, sc):
+		return Point(self.x*sc, self.y*sc)
 
 	def len(self):
 		if not self.r:
