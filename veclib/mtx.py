@@ -2,6 +2,8 @@ from .vec import Vec
 
 class Mtx:
 
+	I = Mtx(1,0,0,1)
+
 	def __init__(self, a, b, c, d):
 		self.a = a
 		self.b = b
@@ -44,8 +46,24 @@ class Mtx:
 			self.a + mtx.a, self.b + mtx.b,
 			self.c + mtx.c, self.d + mtx.d)
 
+	def __neg__(self):
+		return Mtx(-self.a, -self.b, -self.c, -self.d)
 
-	def __matmul__(self, other):
-		return Mtx(
-			self[0]@other[-1], self[0]@other[-2],
-			self[1]@other[-1], self[0]@other[-2]) 
+	def __mul__(self, other):
+		if isintance(other, Mtx):
+			return Mtx(
+				self[0]*other[-1], self[0]*other[-2],
+				self[1]*other[-1], self[1]*other[-2]) 			
+		elif isinstance(other, Vec):
+			return Vec(self[0]*other, self[1]*other)
+		elif isinstance(other, (int, float)):
+			return Mtx(self.a*other, self.b*other, self.c*other, self.d*other)
+
+	def __rmul__(self, other):
+		return other*self
+
+	def __inv__(self):
+		disc = self.a*self.d - self.b*self.c
+		if disc == 0:
+			return ValueError("Non-invertible matrix %s" % str(self))
+		return (1/disc)*Mtx(d, -b, -c, a)
