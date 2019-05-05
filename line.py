@@ -2,8 +2,9 @@
 class Line(Curve):
 
 	def __init__(self, a, b):
-		self.a = a
-		self.b = b
+		self._a = a
+		self._b = b
 
-	def n_sect(self, n, i=None)
+	def n_sect(self, n, i=None):
+
 		
