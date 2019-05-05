@@ -1,6 +1,6 @@
-class Vec:
+import math
 
-	Z = Vec(0,0)
+class Vec:
 
 	def __init__(self, x, y):
 		self.x = x
@@ -29,7 +29,7 @@ class Vec:
 		if isinstance(other, (int, float)):
 			return Vec(self.x*other, self.y*other)
 		elif isinstance(other, Vec):
-            return self.x*other.x + self.y*other.y
+			return self.x*other.x + self.y*other.y
 		return NotImplemented
 
 	def __rmul__(self, other):
@@ -40,3 +40,8 @@ class Vec:
 			self.x *= other
 			self.y *= other
 			return self
+
+	def len(self):
+		return math.sqrt(self.x**2 + self.y**2)
+
+Z = Vec(0,0)

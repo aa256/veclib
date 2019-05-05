@@ -2,8 +2,6 @@ from .vec import Vec
 
 class Mtx:
 
-	I = Mtx(1,0,0,1)
-
 	def __init__(self, a, b, c, d):
 		self.a = a
 		self.b = b
@@ -67,3 +65,5 @@ class Mtx:
 		if disc == 0:
 			return ValueError("Non-invertible matrix %s" % str(self))
 		return (1/disc)*Mtx(d, -b, -c, a)
+
+I = Mtx(1,0,0,1)

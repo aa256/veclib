@@ -1,4 +1,2 @@
-from .vec import Vec
-from .mtx import Mtx
-
-__all__ = [Vec, Mtx]
+from .vec import Vec, Z
+from .mtx import Mtx, I
