@@ -9,6 +9,9 @@ class TxFn:
     self.is_rnf = rnf
 
   def rnf():
+    """
+    
+    """
   	if self.is_rnf :
   		return self
   	return TxFn(mtx, ~mtx*vec, True)
