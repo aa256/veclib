@@ -2,7 +2,9 @@ from .line import Line
 from .vec import Vec
 from . import stringtools
 
-class Polyline:
+import math
+
+class Polyline(SvgAble):
 
 	_svg_prefix = "<polyline points="
 	_svg_suffix = ">"
@@ -21,6 +23,15 @@ class Polyline:
 		for i in range(n/2):
 			pts.append()
 
+	def lines(self):
+		for i in range(len(self._pts)-1):
+			a, b = self._pts[i], self._pts[i+1]
+
+	def xvals(self):
+		return list(pt.x() for pt in self._pts)
+
+	def yvals(self):
+		return list(pt.y() for pt in self._pts)
 
 	def svg(self):
 		out = _svg_prefix
@@ -28,3 +39,9 @@ class Polyline:
 		out += " stroke=black stroke-width=3"
 		out += _svg_suffix
 		return out
+
+	def x_range(self):
+		xvals = self.xvals()
+		return Interval(min(xvals), max(xvals))
+
+

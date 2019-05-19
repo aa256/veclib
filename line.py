@@ -1,7 +1,7 @@
 from .curve import Curve
 from .interval import Interval
 
-class Line(Curve):
+class Line(Curve, SvgAble):
 
 	def __init__(self, a, b):
 		self._a = a
@@ -27,11 +27,14 @@ class Line(Curve):
 			self._y_range = Interval(self._a.y, self._b.y)
 			return self._y_range
 
+	def box(self):
+		return (x_range.a(), y_range.a(), x_range.b(), y_range.b())
+
+
 	def eval(x=None, y=None):
 		if (x is None) and (y is None):
 			return ValueError("Specify an x or y value")
-		if x:
-			return None
+		if x is not None
 
 
 	def n_sect(self, n, idx):
