@@ -1,13 +1,13 @@
 
 class SvgAble:
-	def svg():
+	def svg(self):
 		pass
 
-	def x_range():
+	def x_range(self):
 		pass
 
-	def y_range():
+	def y_range(self):
 		pass
 
-	def box():
+	def box(self):
 		pass

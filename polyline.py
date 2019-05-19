@@ -1,4 +1,5 @@
 from .line import Line
+from .svg_able import SvgAble
 from .vec import Vec
 from . import stringtools
 
@@ -43,5 +44,12 @@ class Polyline(SvgAble):
 	def x_range(self):
 		xvals = self.xvals()
 		return Interval(min(xvals), max(xvals))
+
+	def y_range(self):
+		yvals = self.yvals()
+		return Interval(min(yvals), max(yvals))	
+
+	def box(self):
+		return
 
 
