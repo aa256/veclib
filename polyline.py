@@ -8,10 +8,12 @@ import math
 class Polyline(SvgAble):
 
 	_svg_prefix = "<polyline points="
-	_svg_suffix = ">"
+	_svg_suffix = "/>"
 
 	def __init__(self, *pts):
 		n = len(pts)
+		print("SDFJSFD")
+		print(n)
 		if n < 3:
 			return ValueError("Require at least 3 lines")
 		self._pts = list(pts)
@@ -29,16 +31,16 @@ class Polyline(SvgAble):
 			a, b = self._pts[i], self._pts[i+1]
 
 	def xvals(self):
-		return list(pt.x() for pt in self._pts)
+		return list(pt.x for pt in self._pts)
 
 	def yvals(self):
-		return list(pt.y() for pt in self._pts)
+		return list(pt.y for pt in self._pts)
 
 	def svg(self):
-		out = _svg_prefix
+		out = self._svg_prefix
 		out += stringtools.list_of_points(self._pts)
 		out += " stroke=black stroke-width=3"
-		out += _svg_suffix
+		out += self._svg_suffix
 		return out
 
 	def x_range(self):
@@ -50,6 +52,8 @@ class Polyline(SvgAble):
 		return Interval(min(yvals), max(yvals))	
 
 	def box(self):
-		return
+		xvals = self.xvals()
+		yvals = self.yvals()
+		return (min(xvals), min(yvals), max(xvals), max(yvals))
 
 
