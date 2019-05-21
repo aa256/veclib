@@ -1,36 +1,43 @@
-import vec
-import mtx
+import math
 
-class TxFn:
+from .vec import Vec, Z
+from .mtx import Mtx, I
 
-  def __init__(self, vec=vec.Z, mtx=mtx.I, rnf=True):
-    self.mtx = mtx
-    self.vec = vec
-    self.is_rnf = rnf
+class Txfn:
 
-  def rnf():
-    """
-    
-    """
-  	if self.is_rnf :
-  		return self
-  	return TxFn(mtx, ~mtx*vec, True)
+	def __init__(self, vec=Z, mtx=I, rnf=True):
+		self.mtx = mtx
+		self.vec = vec
+		self.is_rnf = rnf
 
-  def lnf():
-  	if not self.is_rnf:
-  		return self
-  	return TxFn(mtx, ~mtx*vec, False)
+	def rnf():
+		"""
+		
+		"""
+		if self.is_rnf:
+			return self
+		return Txfn(mtx, ~mtx*vec, True)
 
-  def __mul__(self, txfn, lnf=False):
-  	"""Eager multiplication."""
-  	if (self.rnf or txfn.rnf):
-  		if(not self.rnf):
-  			self = self.rnf()
-  		if(not txfn.rnf):
-  			txfn = txfn.rnf()
-  		return TxFn(self.vec + self.mtx*txfn.vec, self.mtx*txfn.mtx)
-  	return TxFn(~txfn.mtx*self.vec + txfn.vec, self.mtx*txfn.mtx)
+	def lnf():
+		if not self.is_rnf:
+			return self
+		return Txfn(mtx, ~mtx*vec, False)
 
-  def __inv__(self):
-  	"""~inv operator"""
-  	return TxFn(~self.mtx, -self.vec, not self.rnf)
+	def __mul__(self, Txfn, lnf=False):
+		"""Eager multiplication."""
+		if (self.rnf or Txfn.rnf):
+			if(not self.rnf):
+				self = self.rnf()
+			if(not Txfn.rnf):
+				Txfn = Txfn.rnf()
+			return Txfn(self.vec + self.mtx*Txfn.vec, self.mtx*Txfn.mtx)
+		return Txfn(~Txfn.mtx*self.vec + Txfn.vec, self.mtx*Txfn.mtx)
+
+	def __inv__(self):
+		"""~inv operator"""
+		return Txfn(~self.mtx, -self.vec, not self.rnf)
+
+	@classmethod
+	def rotate_Txfn(n):
+		phi = 2*math.pi/n
+		return Txfn(mtx=Mtx(math.cos(phi), -math.sin(phi), math.sin(phi), math.cos(phi)))
