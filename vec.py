@@ -1,47 +1,32 @@
-import math
+import numbers
 
 class Vec:
-
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
+		return self
+	
+	def __add__(self, other):
+		return Vec(self.x + other.x, self.y + other.y)
 
-	def __str__(self):
-		return "[%s %s]^T" % (self.x, self.y)
+	def __iadd__(self, other):
+		self.x += other.x
+		self.y += other.y
 
-	def __repr__(self):	
-		return str(self)
-
-	def __add__(self, u):
-		if isinstance(u, Vec):
-			return Vec(self.x + u.x, self.y + u.y)
-		return NotImplemented
-
-	def __sub__(self, u):
-		if isinstance(u, Vec):
-			return Vec(self.x - u.x, self.y - u.y)
-		return NotImplemented
-
-	def __neg__(self, u):
+	def __neg__(self):
 		return Vec(-self.x, -self.y)
 
+	def __sub__(self, other):
+		return self + (-other)
+
+	def __isub__(self, other):
+		self.x -= other.x
+		self.y -= other.y
+
 	def __mul__(self, other):
-		if isinstance(other, (int, float)):
+		if is_instance(other, numbers.Number):
 			return Vec(self.x*other, self.y*other)
-		elif isinstance(other, Vec):
-			return self.x*other.x + self.y*other.y
-		return NotImplemented
 
-	def __rmul__(self, other):
-		return self*other
-
-	def __imul__(self, other):
-		if isinstance(other, (int, float)):
-			self.x *= other
-			self.y *= other
-			return self
-
-	def len(self):
-		return math.sqrt(self.x**2 + self.y**2)
-
-Z = Vec(0,0)
+	def __div__(self, other):
+		if is_instance(other, numbers.Number):
+			return Vec(self.x/other, self.y/other)
