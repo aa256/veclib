@@ -1,8 +1,15 @@
 
 class Atom:
-	def vecs():
+
+	@classmethod
+	def build(cls, vecs, vec_dict, params):
 		pass
 
-	def params():
+	def vecs(self):
 		pass
 
+	def vec_dict(self):
+		pass
+
+	def params(self):
+		pass

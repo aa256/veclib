@@ -1,9 +1,7 @@
-from .curve import Curve
+from .atom import Atom
 from .line import Line
-from .mtx import Mtx, I
+from .mat import Mat
+from .polygon import Polygon
 from .polyline import Polyline
-from .svg_frame import SvgFrame
 from .txfn import Txfn
-from .vec import Vec, Z
-
-from . import polygon
+from .vec import Vec

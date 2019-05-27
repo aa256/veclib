@@ -1,15 +1,15 @@
-import math
-import typing
+from .vec import Vec, z
 
-from .polyline import Polyline
-from .vec import Vec 
+class Polygon(Polyline):
 
-def unit_ngon(n: int, side: float=10.0):
-	if n < 3:
-		return ValueError("Need at least 3 points to make a polygon.")
-	pts = [Vec(side*math.sin(2*math.pi*i/n), -side*math.cos(2*math.pi*i/n)) for i in range(n)]
-	for pt in pts:
-		print(pt)
-	pts.append(Vec(0, -side))
-	return Polyline(*pts)
+	def __init__(self, n, ctr=z, side_len=None, rad_arm=None):
+
+		if side_len is None and rad_arm is None:
+			return ValueError("One of side_len and rad_arm needs to be set.")
+		if side_len is not None:
+			if rad_arm is None:
+				rad_arm = Vec(0, side_len)
+			else:
+				rad_arm = rad_arm*side_len/rad_arm.len()
+		
 

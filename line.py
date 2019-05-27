@@ -13,5 +13,5 @@ class Line(Atom):
 		return dict()
 
 	def n_sect(self, n):
-		pts = [self.a*((n-i)/n) + self.b*(i/n) for i range(n+1)]
+		pts = [self.a*((n-i)/n) + self.b*(i/n) for i in range(n+1)]
 		return [Line(pts[i], pts[i+1]) for i in range(n)]
