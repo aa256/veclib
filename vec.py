@@ -6,7 +6,6 @@ class Vec:
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
-		return self
 	
 	@classmethod
 	def by_polar_form(cls, rad, phi):
@@ -32,11 +31,11 @@ class Vec:
 		self.y -= other.y
 
 	def __mul__(self, other):
-		if is_instance(other, numbers.Number):
+		if isinstance(other, numbers.Number):
 			return Vec(self.x*other, self.y*other)
 
 	def __div__(self, other):
-		if is_instance(other, numbers.Number):
+		if isinstance(other, numbers.Number):
 			return Vec(self.x/other, self.y/other)
 
 	def len(self):
