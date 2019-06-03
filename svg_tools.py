@@ -1,17 +1,19 @@
 
-def points_str(pts):
-	out = "\""
+def svg_points(pts):
+	out = "points = \""
 	for pt in pts:
 		out += "{0},{1} ".format(pt.x, pt.y)
-	out += "\""
+	out += "\" "
 	return out
 
-def params_str(params):
+def svg_params(params):
 	out = ""
+	
 	for k in params.keys():
-		out += str(k) + " = " + str(params[k]) + " "
+		out += " " + str(k) + "=\"" + str(params[k]) + "\" "
 	return out
 
 defaults = dict()
-defaults['stroke']='rgb(255,0,0)'
+defaults['stroke']='rgb(0,0,0)'
 defaults['stroke-width']=2
+defaults['fill']='rgb(255,255,255)'

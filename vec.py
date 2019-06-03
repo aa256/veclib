@@ -1,17 +1,23 @@
 import math
 import numbers
+import typing
 
+from . import algebraic
+R = typing.TypeVar('R', bound=algebraic.RingType)
 
-class Vec:
+class Vec(typing.Generic[R]):
 	def __init__(self, x, y):
 		self.x = x
 		self.y = y
-	
+
 	@classmethod
 	def by_polar_form(cls, rad, phi):
 		x = rad*math.cos(phi)
 		y = rad*math.sin(phi)
 		return Vec(x,y)
+
+	def __str__(self):
+		return "({0}, {1})".format(self.x, self.y)
 
 	def __add__(self, other):
 		return Vec(self.x + other.x, self.y + other.y)
@@ -31,10 +37,16 @@ class Vec:
 		self.y -= other.y
 
 	def __mul__(self, other):
-		if isinstance(other, numbers.Number):
-			return Vec(self.x*other, self.y*other)
+		if isinstance(other, Vec):
+			return Vec(self.x*other.x, self.y*other.y)
+		if isinstance(other, numbers.Real):
+			return self * Vec.from_real(other)
 
-	def __div__(self, other):
+	@classmethod
+	def from_real(cls, x:numbers.Real):
+		return Vec(x, x)
+
+	def __truediv__(self, other):
 		if isinstance(other, numbers.Number):
 			return Vec(self.x/other, self.y/other)
 

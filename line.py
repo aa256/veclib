@@ -1,10 +1,12 @@
+from .svgable import Svgable
 from .txable import Txable
 from .vec import Vec
 
-class Line(Txable):
-	def __init__(self, a: Vec, b: Vec):
-		self._a = a
-		self._b = b
+class Line(Svgable, Txable):
+	def __init__(self, a: Vec, b: Vec, svg_params: dict=None) -> None:
+		self.a = a
+		self.b = b
+		Svgable.__init__(self, svg_params)
 
 	def vecs():
 		return [self.a, self.b]
@@ -17,4 +19,4 @@ class Line(Txable):
 		return [Line(pts[i], pts[i+1]) for i in range(n)]
 
 	def transform(self, txfn):
-		return Line(txfn*a, txfn*b)
+		return Line(txfn*self.a, txfn*self.b)
