@@ -8,6 +8,8 @@ class SvgFrame:
 		self.svg_params = svg_params
 
 	def to_html(self, fname):
+		print("pooooo")
+		print(fname)
 		outfile = open(fname, "wt")
 		outfile.write("<html><body>")
 		outfile.write("<svg ")

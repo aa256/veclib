@@ -1,0 +1,9 @@
+Thoughts:
+
+20190623:
+Txfn - operates on a vector '*'.
+Txfn can also operate on itself, via composition.
+Txable interface allows a Txfn to operate on it via the transform method.
+
+There are other transformations on Svgables that do not immediately derive
+from operators on vectors. SvgTxfn? Txfn<Template>?

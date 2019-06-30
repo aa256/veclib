@@ -11,3 +11,4 @@ class Polycurve:
 		return Polycurve(txfn*curve for curve in self.curves)
 
 	def to_svg(self):
+		

@@ -18,9 +18,8 @@ class Polyline(Svgable, Txable):
 		self._lines = None
 		Svgable.__init__(self, svg_params)
 
-
 	def transform(self, txfn):
-		return Polyline([txfn*self.pts[i] for i in range(len(self.pts))])
+		return Polyline( [txfn*pt for pt in self.pts] )
 
 	def lines(self):
 		if not self._lines:
@@ -28,6 +27,7 @@ class Polyline(Svgable, Txable):
 		return self._lines
 
 	def svg(self):
+		print([str(pt) for pt in self.pts])
 		out = Polyline.svg_prefix
 		out += svg_tools.svg_points(self.pts)
 		out += svg_tools.svg_params(self.svg_params)

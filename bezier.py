@@ -4,7 +4,7 @@ from .svgable import Svgable
 
 class BezierCurve(Svgable):
 
-	def __init__(self, pts):
+	def __init__(self, pts, svg_params):
 		self.pts = tuple(pts)
 		self.a = pts[0]
 		self.b = pts[-1]

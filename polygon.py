@@ -12,7 +12,7 @@ class Polygon(Polyline):
 			return ValueError("Need to specify at least 3 sides.")
 
 		if side_len is None and rad_arm is None:
-			return ValueError("One of side_len and rad_arm needs to be set.")
+			raise ValueError("One of side_len and rad_arm needs to be set.")
 		if rad_arm is None:
 			rad_arm = Vec(0, side_len)
 

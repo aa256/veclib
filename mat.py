@@ -43,4 +43,8 @@ class Mat:
 			return ArithmeticError("Matrix {} is not invertible".format())
 		return 1/(self.a*self.d - self.b*self.c)
 
+	@classmethod
+	def I(cls):
+		return Mat(1,0,0,1)
+		
 I = Mat(1, 0, 0, 1)
