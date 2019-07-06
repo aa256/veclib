@@ -1,5 +1,9 @@
 Thoughts:
 
+20190706:
+
+Let's implement a Bezier spline.
+
 20190623:
 Txfn - operates on a vector '*'.
 Txfn can also operate on itself, via composition.
