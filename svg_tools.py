@@ -1,5 +1,5 @@
 
-def svg_points(pts):
+def pts_as_pairs(*pts):
 	out = "points = \""
 	for pt in pts:
 		out += "{0},{1} ".format(pt.x, pt.y)
@@ -8,7 +8,7 @@ def svg_points(pts):
 
 def svg_params(params):
 	out = ""
-	
+
 	for k in params.keys():
 		out += " " + str(k) + "=\"" + str(params[k]) + "\" "
 	return out

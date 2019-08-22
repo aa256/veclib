@@ -29,7 +29,7 @@ class Polyline(Svgable, Txable):
 	def svg(self):
 		print([str(pt) for pt in self.pts])
 		out = Polyline.svg_prefix
-		out += svg_tools.svg_points(self.pts)
+		out += svg_tools.pts_as_pairs(self.pts)
 		out += svg_tools.svg_params(self.svg_params)
 		out += Polyline.svg_suffix
 		return out

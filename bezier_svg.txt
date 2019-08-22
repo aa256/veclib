@@ -1,19 +1,22 @@
-(move)
-M x y
-m dx dy
 
-(line)
-L x y
-l dx dy
+
+Move
+M x y (m dx dy)
+
+line
+L x y (l dx dy)
 
 H x (h dx)
 V y (v dy)
 
 Quadratic Bezier
-Q x1 y1, x y (or q dx1 dy1, dx dy)
+Q x1 y1, x y (q dx1 dy1, dx dy)
+
+Quadratic shortcut; infers control point via reflection of the last control point
+T x y (t dx dy)
 
 Cubic Bezier:
-C x1 y1, x2 y2, x y (or c dx1 dy1, dx2 dy2, dx dy)
+C x1 y1, x2 y2, x y (c dx1 dy1, dx2 dy2, dx dy)
 
-Bezier shortcut
+Cubic shortcut:
 S x2 y2, x y (or s dx2 dy2, dx dy)
