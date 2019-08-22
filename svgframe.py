@@ -16,6 +16,7 @@ class SvgFrame:
 		outfile.write(svg_tools.svg_params(self.svg_params))
 		outfile.write(">")
 		for svg in self.svgables:
+			print("DDDDDDD")
 			outfile.write(svg.svg())
 		outfile.write("</svg></body></html>")
 		outfile.close()

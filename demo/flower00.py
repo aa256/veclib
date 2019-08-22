@@ -13,6 +13,8 @@ for line in lines:
 	out.extend([p0,p1,p2,p3])
 out.append(p4)
 flower_layer0 = veclib.Polyline(out)
+print("HERE")
+print(flower_layer0.pts)
 
 pts = pentagon.pts
 p0 = pts[0]
@@ -43,10 +45,12 @@ for i in range(2):
 s1 = veclib.Txfn.scale(1/3)
 layers.append(s0*s0*s1*pentagon)
 
-sidelen = 1600
+sidelen = 800
+print("CCCCCCC")
 params = dict(
 	{"viewBox":"{} {} {} {}".format(-sidelen/2, -sidelen/2, sidelen, sidelen)})
 frame = veclib.SvgFrame(layers, params)
+print("BBBBBBBBB")
 print(frame)
 print(frame.svgables)
 print("ZOG")

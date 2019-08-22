@@ -1,5 +1,25 @@
 Thoughts:
 
+20190822:
+
+Design principle
+Map 2d vector graphics onto parameterized 2D surface embedded in 3d space.
+
+Model arm as a cylinder of varying diameter.
+
+Length function:
+y axis - untransformed.
+
+x axis - radial axis
+
+d((x1,y1), (x2,y2)) is still sqrt((y2-y1)^2+d(x1,x2)),
+where d(x1, x2) here is the short radial path from a to b.
+
+More general question:
+What is the shortest distance between two points on a cone?
+
+
+
 20190706:
 
 Let's implement a Bezier spline.

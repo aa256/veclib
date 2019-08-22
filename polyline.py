@@ -14,6 +14,9 @@ class Polyline(Svgable, Txable):
 	def __init__(self, pts, svg_params=None):
 		if svg_params is None:
 			svg_params = svg_tools.defaults
+		if(isinstance(pts, tuple)):
+			print("WARNINGWARNING")
+			print(pts)
 		self.pts = tuple(pts)
 		self._lines = None
 		Svgable.__init__(self, svg_params)
@@ -29,7 +32,7 @@ class Polyline(Svgable, Txable):
 	def svg(self):
 		print([str(pt) for pt in self.pts])
 		out = Polyline.svg_prefix
-		out += svg_tools.pts_as_pairs(self.pts)
+		out += svg_tools.pts_as_pairs(*self.pts)
 		out += svg_tools.svg_params(self.svg_params)
 		out += Polyline.svg_suffix
 		return out
