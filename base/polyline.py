@@ -1,5 +1,3 @@
-import math
-
 from . import svg_tools
 
 from .line import Line
@@ -14,9 +12,6 @@ class Polyline(Svgable, Txable):
 	def __init__(self, pts, svg_params=None):
 		if svg_params is None:
 			svg_params = svg_tools.defaults
-		if(isinstance(pts, tuple)):
-			print("WARNINGWARNING")
-			print(pts)
 		self.pts = tuple(pts)
 		self._lines = None
 		Svgable.__init__(self, svg_params)

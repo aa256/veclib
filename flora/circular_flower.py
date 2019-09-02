@@ -1,5 +1,4 @@
-from .txfn import Txfn
-
+from ..base.txfn import Txfn
 
 class GeometricFlower:
 	"""Class for generating 2D radial flowers"""

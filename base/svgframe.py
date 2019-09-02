@@ -1,6 +1,5 @@
 from . import svg_tools
 
-
 class SvgFrame:
 
 	def __init__(self, svgables, svg_params=dict()):
@@ -8,15 +7,13 @@ class SvgFrame:
 		self.svg_params = svg_params
 
 	def to_html(self, fname):
-		print("pooooo")
-		print(fname)
 		outfile = open(fname, "wt")
 		outfile.write("<html><body>")
 		outfile.write("<svg ")
 		outfile.write(svg_tools.svg_params(self.svg_params))
-		outfile.write(">")
+		outfile.write(">\n")
 		for svg in self.svgables:
-			print("DDDDDDD")
 			outfile.write(svg.svg())
+			outfile.write("\n")
 		outfile.write("</svg></body></html>")
 		outfile.close()

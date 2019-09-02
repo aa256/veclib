@@ -1,6 +1,5 @@
 
 def pts_as_pairs(*pts):
-	print("AAAAAAAAAAAAAAAAAAAAAAAA")
 	print(pts)
 	out = "points = \""
 	for pt in pts:

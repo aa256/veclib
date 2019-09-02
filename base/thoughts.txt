@@ -18,7 +18,19 @@ where d(x1, x2) here is the short radial path from a to b.
 More general question:
 What is the shortest distance between two points on a cone?
 
+Can't just use pythagorean principle with these axes.
+E.g. Consider traveling from one point at r1, 0 rads to another point
+at r2, pi rads, where 0 < r1 < r2.
 
+As cone becomes infinitely wide, it is modeled as a plane.
+Then the shortest path between the points is through the origin,
+and the shortest path is r2+r1.
+
+At the other extreme, the cone is a line, and the shortest path
+is of length r2-r1.
+
+One way to construct the cone is to take a circular piece of paper
+and make it into a wedge, like pacman.
 
 20190706:
 
