@@ -130,9 +130,12 @@ class Txfn:
 		return Txfn(self.Op.swap_right(pre, mat, post))
 
 	@staticmethod
-	def rotate(b, a=1, ctr=z):
-		c = math.cos(2*math.pi*a/b)
-		s = math.sin(2*math.pi*a/b)
+	def rotate_int(b, a=1, ctr=z):
+		return Txfn(ctr, mat, -ctr)
+
+	def rotate(frac, ctr=z):
+		c = math.cos(2*math.pi*frac)
+		s = math.sin(2*math.pi*frac)
 		mat = Mat(c, -s, s, c)
 		return Txfn(ctr, mat, -ctr)
 
