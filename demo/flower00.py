@@ -1,5 +1,5 @@
 import copy
-import veclib
+import .. as veclib
 
 pentagon = veclib.Polygon(5, rad_arm=veclib.Vec(0,-100))
 z = veclib.z

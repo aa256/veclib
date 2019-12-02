@@ -1,5 +1,5 @@
 import copy
-from ... import veclib
+import veclib
 
 Vec = veclib.base.Vec
 
