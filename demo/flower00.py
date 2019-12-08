@@ -25,7 +25,7 @@ newlen = (p1 - p0).len()
 scale_fac = (newlen-100)/100
 print("SCALE_FAC")
 print(scale_fac)
-r0 = veclib.base.Txfn.rotate(10)
+r0 = veclib.base.Txfn.rotate(0.10)
 s0 = veclib.base.Txfn.scale(scale_fac)
 txfn = r0*s0
 

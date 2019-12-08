@@ -1,4 +1,4 @@
-from .svgable import Svgable
+from ..svg.svgable import Svgable
 from .txable import Txable
 from .vec import Vec
 

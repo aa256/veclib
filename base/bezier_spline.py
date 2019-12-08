@@ -1,5 +1,5 @@
-from . import svg_tools
-from .svgable import Svgable
+from ..svg import svg_tools
+from ..svg.svgable import Svgable
 from .txable import Txable
 
 class BezierSpline(Svgable, Txable):

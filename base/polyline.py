@@ -1,7 +1,7 @@
-from . import svg_tools
+from ..svg import svg_tools
 
 from .line import Line
-from .svgable import Svgable
+from ..svg.svgable import Svgable
 from .txable import Txable
 
 class Polyline(Svgable, Txable):
